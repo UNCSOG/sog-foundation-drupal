@@ -1,0 +1,27 @@
+id: csv_pages
+label: Pages from CSV file.
+migration_group: legacy_content
+migration_tags:
+  - csv
+source:
+  plugin: csv
+  path: 'public://data/pages.csv'
+  header_row_count: 1
+  # Column header need to be lowercase as they need to be machine name format.
+  column_names:
+    0: 
+      id: 'ID'
+    1: 
+      title: 'Title'
+    2:
+      body: 'Body'
+  ids:
+    - id
+destination:
+  plugin: 'entity:node'
+process:
+  title: title
+  body: body
+  type: 
+    plugin: default_value
+    default_value: page

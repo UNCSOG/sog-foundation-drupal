@@ -1,0 +1,9 @@
+name: SOG Migrate Legacy Content
+type: module
+description: Provides plugins for migrating from D7 to D9
+package: 'SOG Modules'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - migrate_drupal
+  - migrate_plus
+  # - migrate_tools

@@ -1,0 +1,43 @@
+id: legacy_files
+label: Files from legacy D7 site.
+migration_tags:
+  - file
+migration_group: legacy_content
+source:
+  plugin: d7_file
+  constants:
+    source_uri_prefix: 'https://d7.local/'
+    destination_uri_prefix: 'public://images/'
+destination:
+  plugin: 'entity:file'
+process:
+  # uri: filepath
+  uid: uid
+  fid: fid
+  status: status
+  filename: filename
+  filemime: filemime
+  source_uri:
+    plugin: concat
+    source:
+      - constants/source_uri_prefix
+      - filepath
+  destination_uri:
+    plugin: concat
+    source:
+      - constants/destination_uri_prefix
+      - filepath
+  uri:
+    plugin: file_copy
+    source: 
+      - '@source_uri'
+      - '@destination_uri'
+    no_stub: true
+  # uuid: uuid
+  # created: created
+  # changed: changed
+  # filesize: filesize
+  # langcode: 
+    # plugin: default_value
+    # source: lanuage
+    # default_value: "und"

@@ -1,0 +1,80 @@
+id: node_article
+label: Legacy Articles D7
+migration_tags:
+  - node
+  - drupal7
+migration_group: legacy_content
+source:
+  plugin: d7_node
+  node_type: article
+destination:
+  plugin: 'entity:node'
+process:
+  # D9( field machine name): D7( field machine name)
+  title: title
+  status: status
+  created: created
+  changed: changed
+  publish: publish
+  promote: promote
+  sticky: sticky
+  nid: nid
+  type:
+    plugin: default_value
+    default_value: article
+  langcode: 
+    plugin: default_value
+    source: lanuage
+    default_value: "und"
+  # Migrate users first.
+  uid: 
+    plugin: default_value
+    default_value: node_uid
+  body:
+    plugin: sub_process
+    source: body
+    process:
+      value: value
+      summary: summary
+      # format: format 
+        # plugin: default_value
+        # default_value: full_html
+      format:
+        # Map the different taxt formats from D7's to D9's.
+        plugin: static_map
+        source: format
+        map:
+          # D7( field machine name): D9( field machine name)
+          full_html: full_html
+          plain_text: plain_text
+          filtered_html: basic_html
+    # Debugging this field to be migrated, text format doesn't always migrate 1 to 1.
+    # plugin: callback
+    # callable: print_r
+    # source: body
+  # Migrate entity tags first.
+  field_tags:
+    # Debugging, seeing what we are working with here.
+    # plugin: callback
+    # callable: print_r
+    # source: field_tags
+    plugin: sub_process
+    source: field_tags
+    process:
+      target_id: 
+        plugin: migration_lookup
+        source: tid
+        migration: taxonomy_term_tag
+  field_image:
+    plugin: sub_process
+    source: field_image
+    process:
+      target_id: 
+        plugin: migration_lookup
+        source: fid
+        migration: legacy_media_files
+migration_dependencies:
+  required:
+    # - legacy_users
+    - taxonomy_term_tag
+    - legacy_media_files

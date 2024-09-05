@@ -1,0 +1,17 @@
+id: legacy_users
+label: Users from legacy D7 site.
+migration_tags:
+  - user
+migration_group: legacy_content
+source:
+  plugin: d7_user
+destination:
+  plugin: 'entity:user'
+process:
+  name: name
+  password: password
+  mail: mail
+  created: created
+  changed: changed
+  status: status
+  # roles:

@@ -1,0 +1,23 @@
+id: node_page
+label: Legacy Basic Pages D7
+migration_tags:
+  - node
+  - drupal7
+migration_group: legacy_content
+source:
+  plugin: d7_node
+  node_type: page
+destination:
+  plugin: 'entity:node'
+process:
+  title: title
+  type:
+    plugin: default_value
+    default_value: page
+  status: status
+  created: created
+  changed: changed
+  publish: publish
+  promote: promote
+  sticky: sticky
+  nid: nid

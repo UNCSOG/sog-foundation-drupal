@@ -1,0 +1,17 @@
+id: taxonomy_term_tag
+label: Tags from legacy D7.
+migration_tags:
+  - taxonomy term
+  - drupal7
+migration_group: legacy_content
+source:
+  plugin: d7_taxonomy_term
+  # Use if your only migrating one taxonomy vocab.
+  bundle: tags
+  # Use if your wanting to migrate more than one taxonomy vocab.
+  # bundle: [tags, forums]
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: tags
+process:
+  name: name
