@@ -95,3 +95,10 @@
 
 # Ignore .env files as they are personal
 #/.env
+
+
+# SOG Applications Development
+# ----------------------------
+*.psd
+development/*
+.vscode/settings.json
