@@ -1,0 +1,11 @@
+cookie_banner_css: # This is your library.
+  version: VERSION
+  css:
+    theme:
+      css/cookie-banner.css: {}
+
+cookie_banner_js: # This is your library.
+  version: VERSION
+  js:
+    js/cookie-banner.js: {}
+  header: false # Only include this line if you need to load the JS in the header.

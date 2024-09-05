@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains sog_unc_cookie_policy.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sog_unc_cookie_policy_help($route_name, RouteMatchInterface $route_match) {
+  $output = '';
+
+  switch ($route_name) {
+    // Main module help for the sog_unc_cookie_policy module.
+    case 'help.page.sog_unc_cookie_banner':
+      $output .= '<h2>' . \Drupal::translation()->translate('About / Purpose') . '</h2>';
+      $output .= '<p>' . \Drupal::translation()->translate('Display the mandatory UNC cookie policy banner for legal purposes.') . '</p>';
+
+      $output .= '<h2>' . \Drupal::translation()->translate('Developer Documentation') . '</h2>';
+
+      return $output;
+
+    default:
+      $output .= '';
+
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * Allows us to create our own variable for twig templates.
+ */
+function sog_unc_cookie_policy_theme() {
+  return [
+    'cookie_banner_block' => [
+      'variables' => [
+        'banner' => [],
+      ],
+      'render element' => 'children',
+    ],
+  ];
+}

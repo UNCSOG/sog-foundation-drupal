@@ -100,5 +100,5 @@
 # SOG Applications Development
 # ----------------------------
 *.psd
-development/*
+/web/modules/custom/development/*
 .vscode/settings.json

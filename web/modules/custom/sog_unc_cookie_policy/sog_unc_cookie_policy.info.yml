@@ -1,0 +1,8 @@
+name: 'SOG UNC Cookie Policy'
+type: module
+description: 'Displays the required UNC cookie policy banner.'
+core_version_requirement: ^10.0
+package: 'SOG Modules'
+
+dependencies:
+  - drupal:block

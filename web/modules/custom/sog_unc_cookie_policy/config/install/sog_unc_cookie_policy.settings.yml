@@ -1,0 +1,5 @@
+cookie_banner_settings:
+  text: "This website uses cookies to improve your experience. By continuing to use this website, you agree to our use of cookies."
+  button_text: "Accept cookies"
+  privacy_policy_url: "https://www.example.com/privacy-policy"
+langcode: "en"

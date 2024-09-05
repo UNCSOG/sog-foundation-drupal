@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a block.
+ *
+ * @see template_preprocess_block()
+ *
+ * @ingroup themeable
+ */
+#}
+{{ attach_library('sog_unc_cookie_policy/cookie_banner_css') }}
+{{ attach_library('sog_unc_cookie_policy/cookie_banner_js') }}
+
+
+<section id="cookie-banner" aria-label="Cookie Consent Banner" style="display: block;">
+	<div id="container-cookie">
+		<div class="cookie-banner-text">
+			This website uses cookies and similar technologies to understand visitor experiences. By using this website, you consent to UNC-Chapel Hill's cookie usage in accordance with their <a href="https://www.unc.edu/about/privacy-statement/" title="" target="_blank">Privacy Notice</a>.
+		</div>
+
+		<button class="cookie-banner-button cookie-accept-button" aria-description="Accept cookies and close the banner">I Accept</button>
+	</div>
+</section>

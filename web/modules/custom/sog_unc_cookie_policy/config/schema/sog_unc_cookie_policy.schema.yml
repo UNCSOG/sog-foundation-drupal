@@ -1,0 +1,17 @@
+sog_unc_cookie_policy.settings:
+  type: config_object
+  label: 'Cookie Banner Settings'
+  mapping:
+    cookie_banner_settings:
+      type: mapping
+      label: 'Cookie Banner Settings'
+      mapping:
+        text:
+          type: string
+          label: 'Cookie Banner Text'
+        button_text:
+          type: string
+          label: 'Accept Button Text'
+        privacy_policy_url:
+          type: string
+          label: 'Privacy Policy URL'
