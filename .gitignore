@@ -102,3 +102,4 @@
 *.psd
 /web/modules/custom/development/*
 .vscode/settings.json
+.ddev/*
